@@ -2,6 +2,7 @@ package com.example.data.datasource.remote
 
 import android.content.Context
 import com.example.data.util.BASE_URL
+import com.example.data.util.TOKEN
 import com.example.data.util.isOnline
 import com.example.domain.core.BaseError
 import com.example.domain.core.BaseException
@@ -53,7 +54,8 @@ class ApiProvider(context: Context) {
             val request = it.request()
             val requestBuilder = request.newBuilder()
             requestBuilder.addHeader("Accept", "application/json")
-            requestBuilder.addHeader("Content-type", "application/json")
+            requestBuilder.addHeader("Content-type", "application/json;charset=utf-8")
+            requestBuilder.addHeader("Authorization", TOKEN)
             val response = it.proceed(requestBuilder.build())
 
             if (response.code != HttpsURLConnection.HTTP_OK) {
