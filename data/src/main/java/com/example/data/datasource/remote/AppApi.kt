@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface AppApi {
-    @GET("")
+    @GET(" ")
     suspend fun getResults(@Query("term") term: String): ResultResponseDto
 
     @GET(POPULAR_ENDPOINT)
